@@ -50,7 +50,7 @@ public class Main {
                 while (rs.next()) {
                     routesArrayList.add(
                             new Routes(
-                                    rs.getInt(2) - 1,
+                                    rs.getInt(2) -1,
                                     rs.getInt(3) ,
                                     rs.getInt(4)
                             )
@@ -95,16 +95,6 @@ public class Main {
                     currentCityEdges[i] = new Edge(vertexArrayList.get(routesArrayList.get(i).t_id) , tmpConns.get(i).cost);
                 }
 
-                if(currentStartIndex == 4){
-                    System.out.println("start");
-                    for(Routes item : entry.getValue()){
-                        System.out.println(item.f_id + " " + item.t_id + "\n");
-                    }
-                    System.out.println("end");
-                    System.out.println(vertexArrayList.size() + "size");
-                    System.out.println(vertexArrayList);
-                    System.out.println(vertexArrayList.get(3));
-                }
                 vertexArrayList.get(currentStartIndex).adjacencies = currentCityEdges;
             }
 
@@ -119,7 +109,7 @@ public class Main {
                 Vertex cityTo = null;
 
                 for(int j = 0 ; j < vertexArrayList.size();j++){
-                    if(j == problemsArrayList.get(x).from_id - 1){
+                    if(j == problemsArrayList.get(x).from_id -1){
                         cityFrom = vertexArrayList.get(j);
                         break;
                     }
@@ -135,7 +125,7 @@ public class Main {
 
                 Solution sol = new Solution(0,0);
                 sol.id = i;
-                sol.cost = (int)cityTo.minDistance;
+                sol.cost = (int)cityTo.minDistance + 1;
                 solutions.add(sol);
 
 
@@ -148,10 +138,10 @@ public class Main {
             )) {
 
                 for (Solution solution : solutions) {
-                    System.out.println("Solution id: " + solution.id + ", cost: " + solution.cost);
+                    //System.out.println("Solution id: " + solution.id + ", cost: " + solution.cost);
                     insertSolution.setInt(1, solution.id+1);
                     insertSolution.setInt(2,solution.cost);
-
+                    System.out.println("Solution id: " + solution.id + ", cost: " + solution.cost);
                     insertSolution.addBatch();
                 }
                 insertSolution.executeBatch();

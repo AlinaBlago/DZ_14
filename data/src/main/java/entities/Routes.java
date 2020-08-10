@@ -15,7 +15,4 @@ public class Routes {
         return f_id;
     }
 
-    public int getEndIndex(){
-        return t_id;
-    }
 }

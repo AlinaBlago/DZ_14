@@ -10,7 +10,7 @@ import java.util.PriorityQueue;
 
 public class Algorithm {
     public static void computePaths(Vertex source){
-        source.minDistance = 0.;
+        source.minDistance = 0;
         PriorityQueue<Vertex> vertexQueue = new PriorityQueue<Vertex>();
         vertexQueue.add(source);
         while (!vertexQueue.isEmpty()) {
