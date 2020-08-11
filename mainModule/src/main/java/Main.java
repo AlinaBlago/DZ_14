@@ -2,6 +2,7 @@ import entities.Location;
 import entities.Problems;
 import entities.Routes;
 import entities.Solution;
+import jdbc.JDBCDataImpl;
 import myClasses.Vertex;
 
 import java.sql.*;
@@ -17,8 +18,7 @@ public class Main {
     public static void main(String[] args) throws SQLException {
         System.out.println("Hometask 14\n----------------");
 
-        JDBSDataImpl data = new JDBSDataImpl();
-
+        JDBCDataImpl data = new JDBCDataImpl();
         ArrayList<Location> locations = data.getLocations();
         ArrayList<Routes> routes = data.getRoutes();
         Map<Integer, List<Routes>>  tempConnectionsPerStartIndex = routes.stream()

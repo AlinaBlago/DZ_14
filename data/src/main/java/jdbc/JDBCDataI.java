@@ -1,3 +1,5 @@
+package jdbc;
+
 import entities.Location;
 import entities.Problems;
 import entities.Routes;
@@ -11,7 +13,7 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.stream.Collectors;
 
-public interface JDBSDataI {
+public interface JDBCDataI {
     Properties props = loadProperties();
     String url = props.getProperty("url");
 

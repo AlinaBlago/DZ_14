@@ -1,3 +1,5 @@
+package jdbc;
+
 import entities.Location;
 import entities.Problems;
 import entities.Routes;
@@ -14,7 +16,7 @@ import java.util.*;
 
 import static java.util.stream.Collectors.groupingBy;
 
-public class JDBSDataImpl implements JDBSDataI {
+public class JDBCDataImpl implements JDBCDataI {
 
 
   public ArrayList<Location> getLocations() throws SQLException {
@@ -170,11 +172,11 @@ public class JDBSDataImpl implements JDBSDataI {
             }
 
 
-     static Properties loadProperties() {
+     public static Properties loadProperties() {
 
         Properties props = new Properties();
 
-        try (InputStream input = JDBSDataImpl.class.getResourceAsStream("/jdbs.properties")) {
+        try (InputStream input = JDBCDataImpl.class.getResourceAsStream("/jdbs.properties")) {
             props.load(input);
         } catch (IOException e) {
             throw new UncheckedIOException(e);
