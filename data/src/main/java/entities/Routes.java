@@ -2,7 +2,7 @@ package entities;
 
 public class Routes {
     public int f_id;
-    public int t_id;
+   static public int t_id;
     public int cost;
 
     public Routes(int from_id, int to_id, int cost){
